@@ -1,0 +1,30 @@
+{
+  "name": "origin",
+  "version": "0.1.0",
+  "description": "Origin Jekyll starter theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unboundstudio/origin.git"
+  },
+  "author": "Ivan Chromjak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unboundstudio/origin/issues"
+  },
+  "homepage": "",
+  "dependencies": {
+    "uikit": "latest"
+  },
+  "devDependencies": {
+    "ncp": "latest",
+    "uglify-js": "latest",
+    "watch": "latest"
+  },
+  "scripts": {
+    "copy:sass": "ncp node_modules/uikit/src/scss/ _sass/uikit/",
+    "uglify": "uglifyjs node_modules/uikit/dist/js/uikit.js node_modules/uikit/dist/js/uikit-icons.js assets/js/custom.js -m -c -o assets/js/main.js",
+    "build": "npm run uglify",
+    "watch": "watch 'npm run build' assets/js/custom.js",
+    "postinstall": "npm run copy:sass && npm run build"
+  }
+}
